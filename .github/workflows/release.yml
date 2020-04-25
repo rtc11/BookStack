@@ -1,1 +1,13 @@
+on: push
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup node 10.x
+      uses: actions/setup-node@v1.4.2
+    - name: dockerize
+      run: docker-compose run app composer install
+      # todo: fix environment
+      # todo: put container to git-package-reg
+      # todo: deploy container to some hosting service
